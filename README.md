@@ -18,6 +18,11 @@ This repository is the site at **https://pezzottoai.github.io** and the catalog 
    by feature, `grade` the result, and emit the catalog entry (`stall`). The harness lives
    in its own repository under the [pezzottoai](https://github.com/pezzottoai) organization.
 
+3. **Il garzone — the launcher.** The [pezzotto.ai launcher](https://github.com/pezzottoai/launcher)
+   installs and launches open-source apps, including the clones on the blanket, on Linux,
+   Windows and macOS. Its own app manifests live in
+   [launcher-catalog](https://github.com/pezzottoai/launcher-catalog).
+
 ## This repo
 
 ```

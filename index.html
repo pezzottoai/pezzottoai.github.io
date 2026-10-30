@@ -112,7 +112,7 @@
   .def i { color: var(--ink-2); }
 
   .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 28px; }
-  .pillar { border: 2px solid var(--rule); padding: 22px; background: var(--paper-2); position: relative; }
+  .pillar { border: 2px solid var(--rule); padding: 22px; background: var(--paper-2); position: relative; scroll-margin-top: 24px; }
   .pillar .num { position: absolute; top: -14px; left: 16px; background: var(--tarp); color: #fff; font-family: var(--mono); font-weight: 600; font-size: 12px; letter-spacing: .12em; padding: 3px 9px; }
   .pillar h3 { font-family: var(--display); font-size: 26px; margin: 6px 0 4px; }
   .pillar h3 em { font-style: normal; color: var(--ink-2); font-family: var(--mono); font-size: 14px; font-weight: 400; display: block; letter-spacing: .08em; text-transform: uppercase; }
@@ -186,6 +186,7 @@
   <a href="#catalog">The stall</a>
   <a href="#grade">The grade</a>
   <a href="#submit">Add a clone</a>
+  <a href="#launcher">The launcher</a>
   <a href="https://github.com/pezzottoai">GitHub</a>
 </nav>
 
@@ -202,7 +203,7 @@
 </section>
 
 <section id="how">
-  <h2><small>Structure</small>Two halves of the same stall</h2>
+  <h2><small>Structure</small>Three pieces of the same stall</h2>
   <div class="pillars">
     <article class="pillar">
       <span class="num">01</span>
@@ -223,6 +224,17 @@
         <li><code>build</code> — drive the agent, one feature at a time</li>
         <li><code>grade</code> — score coverage and fidelity</li>
         <li><code>stall</code> — emit the catalog entry</li>
+      </ul>
+    </article>
+    <article class="pillar" id="launcher">
+      <span class="num">03</span>
+      <h3>Il garzone <em>the launcher</em></h3>
+      <p>The <b>pezzotto.ai launcher</b> hands you the goods: a small cross-platform installer and launcher for open-source apps, including the knock-offs on this blanket. Browse by topic, install with one click, launch, remove. Rust and egui, no account, works offline once the catalog is cached.</p>
+      <ul>
+        <li><a href="https://github.com/pezzottoai/launcher/releases/latest">Download</a> for Linux, Windows and macOS (<a href="https://github.com/pezzottoai/launcher/releases/tag/nightly">nightly</a> builds too)</li>
+        <li>Installs via Flatpak, winget, Homebrew or the project's own releases</li>
+        <li>Its own catalog: <a href="https://github.com/pezzottoai/launcher-catalog">launcher-catalog</a>, one JSON manifest per app</li>
+        <li>Source: <a href="https://github.com/pezzottoai/launcher">pezzottoai/launcher</a>, MIT</li>
       </ul>
     </article>
   </div>
@@ -287,7 +299,7 @@
 </section>
 
 <footer>
-  <span>pezzotto.ai · <a href="https://github.com/pezzottoai">github.com/pezzottoai</a></span>
+  <span>pezzotto.ai · <a href="https://github.com/pezzottoai">github.com/pezzottoai</a> · <a href="https://github.com/pezzottoai/launcher">launcher</a> · <a href="https://github.com/pezzottoai/launcher-catalog">launcher-catalog</a></span>
   <span>site &amp; harness: MIT · catalog data: CC0</span>
   <span>no affiliation with any original. that's the point.</span>
 </footer>
