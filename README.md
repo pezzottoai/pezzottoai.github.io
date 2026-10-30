@@ -32,7 +32,9 @@ catalog/README.md     entry format, grade scale, rules
 ```
 
 The page fetches `catalog/clones.json` at load and renders cards with search and status
-filter. Open `index.html` through any static server to preview (`python3 -m http.server`).
+filter. It is in English, Italian and Neapolitan: the English text is the HTML itself, the
+other two live in the `I18N` table in the page script (`data-i18n` keys), and the switcher
+in the nav remembers the choice. `?lang=it` or `?lang=nap` picks one directly. Open `index.html` through any static server to preview (`python3 -m http.server`).
 
 ## Add a clone
 

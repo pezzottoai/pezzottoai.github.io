@@ -95,6 +95,11 @@
   nav.toc { display: flex; flex-wrap: wrap; gap: 10px 24px; padding: 14px 0; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 14px; }
   nav.toc a { text-decoration: none; }
   nav.toc a::before { content: "→ "; color: var(--tarp); }
+  nav.toc .lang { margin-left: auto; display: inline-flex; gap: 2px; }
+  nav.toc .lang button { font: inherit; letter-spacing: .08em; padding: 3px 8px; border: 1px solid var(--rule); background: var(--paper); color: var(--ink); cursor: pointer; }
+  nav.toc .lang button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  nav.toc .lang button:hover { color: var(--tarp); }
+  nav.toc .lang button[aria-pressed="true"]:hover { color: var(--paper); }
 
   section { padding: clamp(36px, 6vw, 72px) 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); }
   section:last-of-type { border-bottom: 0; }
@@ -175,110 +180,111 @@
 <div class="wrap">
 
 <header class="mast">
-  <p class="kicker">Open-source knock-offs, honestly labelled</p>
+  <p class="kicker" data-i18n="kicker">Open-source knock-offs, honestly labelled</p>
   <h1 class="logo">pezzotto<span class="dot">.</span>ai</h1>
-  <p class="tagline">A street stall of vibecoded clones of closed-source apps — and the workshop that makes them.</p>
+  <p class="tagline" data-i18n="tagline">A street stall of vibecoded clones of closed-source apps — and the workshop that makes them.</p>
   <span class="stamp" aria-hidden="true">100% pezzotto</span>
 </header>
 
 <nav class="toc" aria-label="Sections">
-  <a href="#what">What is a pezzotto</a>
-  <a href="#how">Two halves</a>
-  <a href="#catalog">The stall</a>
-  <a href="#grade">The grade</a>
-  <a href="#submit">Add a clone</a>
-  <a href="#launcher">The launcher</a>
+  <a href="#what" data-i18n="nav.what">What is a pezzotto</a>
+  <a href="#how" data-i18n="nav.how">Three pieces</a>
+  <a href="#catalog" data-i18n="nav.catalog">The stall</a>
+  <a href="#grade" data-i18n="nav.grade">The grade</a>
+  <a href="#submit" data-i18n="nav.submit">Add a clone</a>
+  <a href="#launcher" data-i18n="nav.launcher">The launcher</a>
   <a href="https://github.com/pezzottoai">GitHub</a>
+  <span class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" lang="en">EN</button><button type="button" data-lang="it" lang="it">IT</button><button type="button" data-lang="nap" lang="nap">NAP</button></span>
 </nav>
 
 <section id="what">
-  <h2><small>Glossary</small>What is a pezzotto?</h2>
-  <div class="def">
+  <h2><small data-i18n="what.small">Glossary</small><span data-i18n="what.h2">What is a pezzotto?</span></h2>
+  <div class="def" data-i18n="what.def">
     <b>pezzotto</b> <i>/pe'tsɔt.to/ — noun, Neapolitan.</i><br>
     1. A counterfeit. The bootleg CD on a blanket outside the station, the handbag with one extra letter in the logo.<br>
     2. A patch; something stitched together from pieces (<i>pezzi</i>) that mostly works.<br>
     3. <i>(here)</i> A vibecoded, open-source reconstruction of a closed-source app.<br>
     <i>See also:</i> <b>'o bancariello</b>, the stall; <b>'a fraveca</b>, the works (as in <i>pare 'a fraveca 'e San Pietro</i>, the job that never ends); <b>'o guaglione</b>, the shop boy who hands you the goods.
   </div>
-  <p class="lede">Every popular closed-source app now has a dozen clones built in an afternoon with a coding agent. Most are abandoned. Some are excellent. None of them are labelled.</p>
-  <p>pezzotto.ai takes the joke seriously. We catalog the knock-offs, grade how convincing they are, tell you which ones are still alive, and publish the harness we use to make our own — openly, with the name of the original right on the price tag.</p>
+  <p class="lede" data-i18n="what.lede">Every popular closed-source app now has a dozen clones built in an afternoon with a coding agent. Most are abandoned. Some are excellent. None of them are labelled.</p>
+  <p data-i18n="what.p">pezzotto.ai takes the joke seriously. We catalog the knock-offs, grade how convincing they are, tell you which ones are still alive, and publish the harness we use to make our own — openly, with the name of the original right on the price tag.</p>
 </section>
 
 <section id="how">
-  <h2><small>Structure</small>Three pieces of the same stall</h2>
+  <h2><small data-i18n="how.small">Structure</small><span data-i18n="how.h2">Three pieces of the same stall</span></h2>
   <div class="pillars">
     <article class="pillar">
       <span class="num">01</span>
-      <h3>'O bancariello <em>the catalog</em></h3>
-      <p>A curated index of vibecoded clones of closed-source apps. Each entry names the original, links the clone, records license, stack and feature coverage, tracks whether it is still maintained, and gives it a <a href="#grade">pezzotto grade</a>.</p>
+      <h3>'O bancariello <em data-i18n="p1.em">the catalog</em></h3>
+      <p data-i18n="p1.p">A curated index of vibecoded clones of closed-source apps. Each entry names the original, links the clone, records license, stack and feature coverage, tracks whether it is still maintained, and gives it a <a href="#grade">pezzotto grade</a>.</p>
       <ul>
-        <li>One JSON file per stall: <code>catalog/clones.json</code></li>
-        <li>Human-reviewed. No bots adding themselves.</li>
-        <li>Re-checked periodically: dead clones get marked, not deleted.</li>
+        <li data-i18n="p1.li1">One JSON file per stall: <code>catalog/clones.json</code></li>
+        <li data-i18n="p1.li2">Human-reviewed. No bots adding themselves.</li>
+        <li data-i18n="p1.li3">Re-checked periodically: dead clones get marked, not deleted.</li>
       </ul>
     </article>
     <article class="pillar">
       <span class="num">02</span>
-      <h3>'A fraveca <em>the harness</em></h3>
-      <p>A harness that drives a coding agent from a closed-source target to a working clone. It writes the spec from public behaviour, builds, grades the result against the spec, and produces the catalog entry as a by-product.</p>
+      <h3>'A fraveca <em data-i18n="p2.em">the harness</em></h3>
+      <p data-i18n="p2.p">A harness that drives a coding agent from a closed-source target to a working clone. It writes the spec from public behaviour, builds, grades the result against the spec, and produces the catalog entry as a by-product.</p>
       <ul>
-        <li><code>spec</code> — reverse a feature map from docs, screenshots, public behaviour</li>
-        <li><code>build</code> — drive the agent, one feature at a time</li>
-        <li><code>grade</code> — score coverage and fidelity</li>
-        <li><code>stall</code> — emit the catalog entry</li>
+        <li data-i18n="p2.li1"><code>spec</code> — reverse a feature map from docs, screenshots, public behaviour</li>
+        <li data-i18n="p2.li2"><code>build</code> — drive the agent, one feature at a time</li>
+        <li data-i18n="p2.li3"><code>grade</code> — score coverage and fidelity</li>
+        <li data-i18n="p2.li4"><code>stall</code> — emit the catalog entry</li>
       </ul>
     </article>
     <article class="pillar" id="launcher">
       <span class="num">03</span>
-      <h3>'O guaglione <em>the launcher</em></h3>
-      <p>The <b>pezzotto.ai launcher</b> hands you the goods: a small cross-platform installer and launcher for open-source apps, including the knock-offs on this blanket. Browse by topic, install with one click, launch, remove. Rust and egui, no account, works offline once the catalog is cached.</p>
+      <h3>'O guaglione <em data-i18n="p3.em">the launcher</em></h3>
+      <p data-i18n="p3.p">The <b>pezzotto.ai launcher</b> hands you the goods: a small cross-platform installer and launcher for open-source apps, including the knock-offs on this blanket. Browse by topic, install with one click, launch, remove. Rust and egui, no account, works offline once the catalog is cached.</p>
       <ul>
-        <li><a href="https://github.com/pezzottoai/launcher/releases/latest">Download</a> for Linux, Windows and macOS (<a href="https://github.com/pezzottoai/launcher/releases/tag/nightly">nightly</a> builds too)</li>
-        <li>Installs via Flatpak, winget, Homebrew or the project's own releases</li>
-        <li>Source: <a href="https://github.com/pezzottoai/launcher">pezzottoai/launcher</a>, MIT. App manifests live in a secondary repo, <a href="https://github.com/pezzottoai/launcher-catalog">launcher-catalog</a>.</li>
+        <li data-i18n="p3.li1"><a href="https://github.com/pezzottoai/launcher/releases/latest">Download</a> for Linux, Windows and macOS (<a href="https://github.com/pezzottoai/launcher/releases/tag/nightly">nightly</a> builds too)</li>
+        <li data-i18n="p3.li2">Installs via Flatpak, winget, Homebrew or the project's own releases</li>
+        <li data-i18n="p3.li3">Source: <a href="https://github.com/pezzottoai/launcher">pezzottoai/launcher</a>, MIT. App manifests live in a secondary repo, <a href="https://github.com/pezzottoai/launcher-catalog">launcher-catalog</a>.</li>
       </ul>
     </article>
   </div>
 </section>
 
 <section id="catalog">
-  <h2><small>'O bancariello</small>What's on the blanket</h2>
+  <h2><small>'O bancariello</small><span data-i18n="catalog.h2">What's on the blanket</span></h2>
   <div class="toolbar">
     <label class="sr" for="q">Search the catalog</label>
-    <input id="q" type="search" placeholder="search by original, clone, stack…" autocomplete="off">
+    <input id="q" type="search" placeholder="search by original, clone, stack…" data-i18n-ph="catalog.search" autocomplete="off">
     <label class="sr" for="status">Filter by status</label>
     <select id="status">
-      <option value="">any status</option>
-      <option value="alive">alive</option>
-      <option value="stale">stale</option>
-      <option value="abandoned">abandoned</option>
+      <option value="" data-i18n="status.any">any status</option>
+      <option value="alive" data-i18n="status.alive">alive</option>
+      <option value="stale" data-i18n="status.stale">stale</option>
+      <option value="abandoned" data-i18n="status.abandoned">abandoned</option>
     </select>
     <span class="count" id="count"></span>
   </div>
   <div class="grid" id="grid"></div>
-  <div class="empty" id="empty" hidden>
+  <div class="empty" id="empty" data-i18n="catalog.empty" hidden>
     <b>Nothing on the blanket yet.</b>
     The stall is open. <a href="#submit">Bring a clone.</a>
   </div>
 </section>
 
 <section id="grade">
-  <h2><small>Rating</small>The pezzotto grade</h2>
-  <p>Fidelity is judged the way you'd judge a bag at the market: from how far away does it still fool you? The grade covers looks and behaviour, not code quality. Code quality gets its own fields.</p>
+  <h2><small data-i18n="grade.small">Rating</small><span data-i18n="grade.h2">The pezzotto grade</span></h2>
+  <p data-i18n="grade.p">Fidelity is judged the way you'd judge a bag at the market: from how far away does it still fool you? The grade covers looks and behaviour, not code quality. Code quality gets its own fields.</p>
   <div class="scale">
-    <div><b>A</b> Indistinguishable at arm's length. You could hand it to a user of the original.</div>
-    <div><b>B</b> Convincing from three metres. Core flows match; details drift.</div>
-    <div><b>C</b> Recognisable from across the street. The shape is right, half the features are missing.</div>
-    <div><b>D</b> You'd have to be told. A landing page and a dream.</div>
+    <div><b>A</b> <span data-i18n="grade.a">Indistinguishable at arm's length. You could hand it to a user of the original.</span></div>
+    <div><b>B</b> <span data-i18n="grade.b">Convincing from three metres. Core flows match; details drift.</span></div>
+    <div><b>C</b> <span data-i18n="grade.c">Recognisable from across the street. The shape is right, half the features are missing.</span></div>
+    <div><b>D</b> <span data-i18n="grade.d">You'd have to be told. A landing page and a dream.</span></div>
   </div>
 </section>
 
 <section id="submit">
-  <h2><small>Contribute</small>Add a clone to the stall</h2>
+  <h2><small data-i18n="submit.small">Contribute</small><span data-i18n="submit.h2">Add a clone to the stall</span></h2>
   <ol class="steps">
-    <li>Fork <a href="https://github.com/pezzottoai/pezzottoai.github.io">pezzottoai/pezzottoai.github.io</a>.</li>
-    <li>Append an entry to <code>catalog/clones.json</code>. Any clone qualifies, yours or someone else's, as long as it is open source and the original is closed source.</li>
-    <li>Open a pull request. A human checks the repo actually runs, then grades it.</li>
+    <li data-i18n="submit.s1">Fork <a href="https://github.com/pezzottoai/pezzottoai.github.io">pezzottoai/pezzottoai.github.io</a>.</li>
+    <li data-i18n="submit.s2">Append an entry to <code>catalog/clones.json</code>. Any clone qualifies, yours or someone else's, as long as it is open source and the original is closed source.</li>
+    <li data-i18n="submit.s3">Open a pull request. A human checks the repo actually runs, then grades it.</li>
   </ol>
   <pre><code>{
   "id": "example-notes",
@@ -296,19 +302,147 @@
   "checked":  "2026-10-30",
   "notes":    "Single-user only; sync is a cron job and a prayer."
 }</code></pre>
-  <p>Fields: <code>status</code> is <code>alive</code> (commits in the last 90 days), <code>stale</code> (90 days to a year) or <code>abandoned</code>. <code>grade</code> follows the scale above. <code>verified</code> is <code>run</code> once someone at the stall has actually run the clone, <code>desk</code> while the grade rests on docs, screenshots and the project's own parity numbers. <code>vibecoded_with</code> names the agent or tool the clone was mostly built with, if known.</p>
+  <p data-i18n="submit.fields">Fields: <code>status</code> is <code>alive</code> (commits in the last 90 days), <code>stale</code> (90 days to a year) or <code>abandoned</code>. <code>grade</code> follows the scale above. <code>verified</code> is <code>run</code> once someone at the stall has actually run the clone, <code>desk</code> while the grade rests on docs, screenshots and the project's own parity numbers. <code>vibecoded_with</code> names the agent or tool the clone was mostly built with, if known.</p>
 </section>
 
 <footer>
   <span>pezzotto.ai · <a href="https://github.com/pezzottoai">github.com/pezzottoai</a> · <a href="https://github.com/pezzottoai/launcher">launcher</a></span>
-  <span>site &amp; harness: MIT · catalog data: CC0</span>
-  <span>no affiliation with any original. that's the point.</span>
+  <span data-i18n="footer.license">site &amp; harness: MIT · catalog data: CC0</span>
+  <span data-i18n="footer.noaff">no affiliation with any original. that's the point.</span>
 </footer>
 
 </div>
 
 <script>
 (async function () {
+  // ---------- languages ----------
+  const LANGS = ['en', 'it', 'nap'];
+  const EN = {
+    'card.cloneOf': 'knock-off of ', 'card.clone': 'clone ↗', 'card.original': 'original ↗', 'card.checked': 'checked ',
+    'card.desk': 'desk-graded', 'card.deskTitle': 'graded from docs and screenshots, not yet run by the stall',
+    'card.grade': 'pezzotto grade', 'catalog.count': '%a / %b on the blanket',
+    'status.alive': 'alive', 'status.stale': 'stale', 'status.abandoned': 'abandoned',
+  };
+  const I18N = {
+    en: EN,
+    it: {
+      'kicker': 'Tarocchi open source, etichettati onestamente',
+      'tagline': 'Una bancarella di cloni vibecodati di app a codice chiuso — e l\'officina che li produce.',
+      'nav.what': 'Cos\'è un pezzotto', 'nav.how': 'Tre pezzi', 'nav.catalog': 'La bancarella', 'nav.grade': 'Il voto', 'nav.submit': 'Aggiungi un clone', 'nav.launcher': 'Il launcher',
+      'what.small': 'Glossario', 'what.h2': 'Cos\'è un pezzotto?',
+      'what.def': '<b>pezzotto</b> <i>/pe\'tsɔt.to/ — sostantivo, napoletano.</i><br>1. Un falso. Il CD taroccato sul lenzuolo davanti alla stazione, la borsa con una lettera in più nel logo.<br>2. Una toppa; qualcosa messo insieme a pezzi che più o meno funziona.<br>3. <i>(qui)</i> Una ricostruzione open source, vibecodata, di un\'app a codice chiuso.<br><i>Vedi anche:</i> <b>\'o bancariello</b>, la bancarella; <b>\'a fraveca</b>, il cantiere (come in <i>pare \'a fraveca \'e San Pietro</i>, il lavoro che non finisce mai); <b>\'o guaglione</b>, il garzone che ti passa la merce.',
+      'what.lede': 'Ogni app a codice chiuso di successo ha ormai una dozzina di cloni costruiti in un pomeriggio con un agente di programmazione. Quasi tutti abbandonati. Alcuni eccellenti. Nessuno etichettato.',
+      'what.p': 'pezzotto.ai prende la battuta sul serio. Cataloghiamo i tarocchi, diamo un voto a quanto sono convincenti, diciamo quali sono ancora vivi e pubblichiamo l\'officina con cui facciamo i nostri — alla luce del sole, con il nome dell\'originale scritto sul cartellino del prezzo.',
+      'how.small': 'Struttura', 'how.h2': 'Tre pezzi della stessa bancarella',
+      'p1.em': 'il catalogo',
+      'p1.p': 'Un indice curato di cloni vibecodati di app a codice chiuso. Ogni voce nomina l\'originale, collega il clone, registra licenza, stack e funzioni coperte, segue se è ancora mantenuto e gli assegna un <a href="#grade">voto pezzotto</a>.',
+      'p1.li1': 'Un file JSON per tutta la bancarella: <code>catalog/clones.json</code>',
+      'p1.li2': 'Rivisto da umani. Niente bot che si aggiungono da soli.',
+      'p1.li3': 'Ricontrollato periodicamente: i cloni morti vengono segnati, non cancellati.',
+      'p2.em': 'l\'officina',
+      'p2.p': 'Un harness che guida un agente di programmazione da un\'app a codice chiuso a un clone funzionante. Scrive la specifica dal comportamento pubblico, costruisce, valuta il risultato rispetto alla specifica e produce la voce di catalogo come sottoprodotto.',
+      'p2.li1': '<code>spec</code> — ricava la mappa delle funzioni da documentazione, screenshot, comportamento pubblico',
+      'p2.li2': '<code>build</code> — guida l\'agente, una funzione alla volta',
+      'p2.li3': '<code>grade</code> — misura copertura e fedeltà',
+      'p2.li4': '<code>stall</code> — genera la voce di catalogo',
+      'p3.em': 'il launcher',
+      'p3.p': 'Il <b>pezzotto.ai launcher</b> ti passa la merce: un piccolo installer e launcher multipiattaforma per app open source, compresi i tarocchi su questo lenzuolo. Sfogli per argomento, installi con un clic, avvii, rimuovi. Rust ed egui, nessun account, funziona offline una volta scaricato il catalogo.',
+      'p3.li1': '<a href="https://github.com/pezzottoai/launcher/releases/latest">Scarica</a> per Linux, Windows e macOS (anche le build <a href="https://github.com/pezzottoai/launcher/releases/tag/nightly">nightly</a>)',
+      'p3.li2': 'Installa via Flatpak, winget, Homebrew o le release del progetto',
+      'p3.li3': 'Sorgente: <a href="https://github.com/pezzottoai/launcher">pezzottoai/launcher</a>, MIT. I manifesti delle app stanno in un repo secondario, <a href="https://github.com/pezzottoai/launcher-catalog">launcher-catalog</a>.',
+      'catalog.h2': 'Cosa c\'è sul lenzuolo', 'catalog.search': 'cerca per originale, clone, stack…',
+      'status.any': 'qualsiasi stato', 'status.alive': 'vivo', 'status.stale': 'fermo', 'status.abandoned': 'abbandonato',
+      'catalog.empty': '<b>Sul lenzuolo non c\'è ancora niente.</b> La bancarella è aperta. <a href="#submit">Porta un clone.</a>',
+      'catalog.count': '%a / %b sul lenzuolo',
+      'grade.small': 'Valutazione', 'grade.h2': 'Il voto pezzotto',
+      'grade.p': 'La fedeltà si giudica come si giudica una borsa al mercato: da quanto lontano ti frega ancora? Il voto riguarda aspetto e comportamento, non la qualità del codice. Quella ha i suoi campi.',
+      'grade.a': 'Indistinguibile a un braccio di distanza. Potresti darlo in mano a chi usa l\'originale.',
+      'grade.b': 'Convincente da tre metri. I flussi principali coincidono; i dettagli divergono.',
+      'grade.c': 'Riconoscibile dall\'altro lato della strada. La forma è giusta, manca metà delle funzioni.',
+      'grade.d': 'Te lo devono dire. Una landing page e un sogno.',
+      'submit.small': 'Contribuisci', 'submit.h2': 'Aggiungi un clone alla bancarella',
+      'submit.s1': 'Fai un fork di <a href="https://github.com/pezzottoai/pezzottoai.github.io">pezzottoai/pezzottoai.github.io</a>.',
+      'submit.s2': 'Aggiungi una voce a <code>catalog/clones.json</code>. Va bene qualsiasi clone, tuo o di altri, purché sia open source e l\'originale sia a codice chiuso.',
+      'submit.s3': 'Apri una pull request. Un umano verifica che il repo funzioni davvero, poi gli dà il voto.',
+      'submit.fields': 'Campi: <code>status</code> è <code>alive</code> (commit negli ultimi 90 giorni), <code>stale</code> (da 90 giorni a un anno) o <code>abandoned</code>. <code>grade</code> segue la scala sopra. <code>verified</code> è <code>run</code> quando qualcuno della bancarella ha davvero eseguito il clone, <code>desk</code> finché il voto si basa su documentazione, screenshot e i numeri di parità dichiarati dal progetto. <code>vibecoded_with</code> indica l\'agente o lo strumento con cui il clone è stato costruito, se noto. Le voci del catalogo sono in inglese.',
+      'footer.license': 'sito e harness: MIT · dati del catalogo: CC0',
+      'footer.noaff': 'nessuna affiliazione con alcun originale. è proprio il punto.',
+      'card.cloneOf': 'tarocco di ', 'card.clone': 'clone ↗', 'card.original': 'originale ↗', 'card.checked': 'controllato ',
+      'card.desk': 'voto a tavolino', 'card.deskTitle': 'valutato da documentazione e screenshot, non ancora eseguito dalla bancarella', 'card.grade': 'voto pezzotto',
+    },
+    nap: {
+      'kicker': 'Pezzotti open source, cu \'a targhetta onesta',
+      'tagline': 'Nu bancariello \'e cloni vibecodati \'e app a còdece chiuso — e \'a fraveca ca \'e fa.',
+      'nav.what': 'Che d\'è nu pezzotto', 'nav.how': 'Tre piezze', 'nav.catalog': '\'O bancariello', 'nav.grade': '\'A pagella', 'nav.submit': 'Puorta nu clone', 'nav.launcher': '\'O guaglione',
+      'what.small': 'Glossario', 'what.h2': 'Che d\'è nu pezzotto?',
+      'what.def': '<b>pezzotto</b> <i>/pe\'tsɔt.to/ — nomme, napulitano.</i><br>1. Na cosa fàuza. \'O CD pezzotto ncopp\' \'o lenzulo annanz\' \'a stazione, \'a borza cu na lettera \'e cchiù dint\' \'o logo.<br>2. Na pezza; na cosa cusuta a piezze ca cchiù o meno fatica.<br>3. <i>(ccà)</i> Na ricostruzione open source, vibecodata, \'e n\'app a còdece chiuso.<br><i>Vide pure:</i> <b>\'o bancariello</b>, \'a bancarella; <b>\'a fraveca</b>, \'o cantiere (comme a <i>pare \'a fraveca \'e San Pietro</i>, \'a fatica ca nun fernesce maje); <b>\'o guaglione</b>, chillo ca te passa \'a rrobba.',
+      'what.lede': 'Ogne app a còdece chiuso ca tira tene mo na decina \'e cloni fatte dint\'a nu doppopranzo cu n\'agente ca scrive còdece. Quase tutte abbandunate. Quaccuna è na meraviglia. Nisciuna tene \'a targhetta.',
+      'what.p': 'pezzotto.ai \'a pazziella se \'a piglia overo. Mettimmo \'e pezzotti ncopp\' \'o bancariello, le dammo nu vuto pe quanto so\' credibbele, dicimmo quale stanno ancora vive e pubblecammo \'a fraveca cu \'a quale facimmo \'e nuoste — a \'o sole, cu \'o nomme \'e l\'origginale scritto ncopp\' \'o cartiello d\' \'o prezzo.',
+      'how.small': 'Struttura', 'how.h2': 'Tre piezze d\' \'o stesso bancariello',
+      'p1.em': '\'o catàlogo',
+      'p1.p': 'N\'elenco fatto a mano \'e cloni vibecodati \'e app a còdece chiuso. Ogne voce dice comme se chiamma l\'origginale, porta a \'o clone, segna licenza, stack e funziune ca tene, tene mente si è ancora mantenuto e le dà nu <a href="#grade">vuto pezzotto</a>.',
+      'p1.li1': 'Nu file JSON pe tutt\' \'o bancariello: <code>catalog/clones.json</code>',
+      'p1.li2': 'Cuntrullato \'a gente overa. Niente bot ca s\'aggiungono sule.',
+      'p1.li3': 'Ricuntrullato ogne tanto: \'e cloni muorte se segnano, nun se scancellano.',
+      'p2.em': '\'o cantiere',
+      'p2.p': 'Nu harness ca porta n\'agente ca scrive còdece \'a n\'app a còdece chiuso fino a nu clone ca fatica. Scrive \'a specifica guardanno comme se cumporta l\'origginale, fraveca, dà \'o vuto a \'o risultato e caccia pure \'a voce d\' \'o catàlogo.',
+      'p2.li1': '<code>spec</code> — tira fora \'a mappa d\' \'e funziune \'a documentazione, screenshot e comme se cumporta',
+      'p2.li2': '<code>build</code> — guida l\'agente, na funzione a \'a vota',
+      'p2.li3': '<code>grade</code> — mesura quanto copre e quanto s\'assumiglia',
+      'p2.li4': '<code>stall</code> — caccia \'a voce d\' \'o catàlogo',
+      'p3.em': '\'o launcher',
+      'p3.p': '\'O <b>pezzotto.ai launcher</b> te passa \'a rrobba: n\'installer e launcher piccerillo pe tutte \'e piattaforme, pe app open source, cumprese \'e pezzotti ncopp\'a stu lenzulo. Guarde pe argumento, installe cu nu click, apre, lieve. Rust e egui, nisciunu account, fatica pure senza rete na vota scaricato \'o catàlogo.',
+      'p3.li1': '<a href="https://github.com/pezzottoai/launcher/releases/latest">Scarica</a> pe Linux, Windows e macOS (pure \'e build <a href="https://github.com/pezzottoai/launcher/releases/tag/nightly">nightly</a>)',
+      'p3.li2': 'Installa cu Flatpak, winget, Homebrew o cu \'e release d\' \'o prugetto',
+      'p3.li3': 'Còdece: <a href="https://github.com/pezzottoai/launcher">pezzottoai/launcher</a>, MIT. \'E manifeste d\' \'e app stanno dint\'a nu repo secundario, <a href="https://github.com/pezzottoai/launcher-catalog">launcher-catalog</a>.',
+      'catalog.h2': 'Che sta ncopp\' \'o lenzulo', 'catalog.search': 'cerca pe origginale, clone, stack…',
+      'status.any': 'qualsiasi stato', 'status.alive': 'vivo', 'status.stale': 'fermo', 'status.abandoned': 'abbandunato',
+      'catalog.empty': '<b>Ncopp\' \'o lenzulo nun ce sta ancora niente.</b> \'O bancariello è apierto. <a href="#submit">Puorta nu clone.</a>',
+      'catalog.count': '%a / %b ncopp\' \'o lenzulo',
+      'grade.small': 'Pagella', 'grade.h2': '\'O vuto pezzotto',
+      'grade.p': '\'A fedeltà se giudica comme se giudica na borza a \'o mercato: \'a quanto luntano te fa fesso ancora? \'O vuto guarda aspetto e cumpurtamento, no \'a qualità d\' \'o còdece. Chella tene \'e campe suoje.',
+      'grade.a': 'Nun se distingue manco a nu palmo. \'O putisse dà mmano a chi usa l\'origginale.',
+      'grade.b': 'Te cunvince \'a tre metre. \'E cose principale cumbinano; \'e dettaglie se ne vanno pe cunto lloro.',
+      'grade.c': 'Se ricanosce \'a ll\'ato lato d\' \'a strada. \'A forma è chella, manca mmiezo d\' \'e funziune.',
+      'grade.d': 'T\' \'o ll\'hanno \'a dicere. Na landing page e nu suonno.',
+      'submit.small': 'Dà na mano', 'submit.h2': 'Puorta nu clone ncopp\' \'o bancariello',
+      'submit.s1': 'Fa\' nu fork \'e <a href="https://github.com/pezzottoai/pezzottoai.github.io">pezzottoai/pezzottoai.github.io</a>.',
+      'submit.s2': 'Aggiunge na voce a <code>catalog/clones.json</code>. Va buono qualsiasi clone, \'o tuojo o \'e n\'ato, basta ca è open source e l\'origginale è a còdece chiuso.',
+      'submit.s3': 'Arape na pull request. Nu cristiano cuntrolla ca \'o repo fatica overo, po\' le dà \'o vuto.',
+      'submit.fields': 'Campe: <code>status</code> è <code>alive</code> (commit dint\'a ll\'urdeme 90 juorne), <code>stale</code> (\'a 90 juorne a n\'anno) o <code>abandoned</code>. <code>grade</code> secuta \'a scala \'e sopra. <code>verified</code> è <code>run</code> quanno quaccuno d\' \'o bancariello ha fatto girà overo \'o clone, <code>desk</code> fino a quanno \'o vuto se fonna ncopp\'a documentazione, screenshot e \'e nummere \'e parità ca dice \'o prugetto. <code>vibecoded_with</code> dice cu quale agente o strumento è stato fatto \'o clone, si se sape. \'E voce d\' \'o catàlogo stanno \'n inglese.',
+      'footer.license': 'sito e fraveca: MIT · date d\' \'o catàlogo: CC0',
+      'footer.noaff': 'nisciuna affiliazione cu nisciuno origginale. è proprio chesto \'o punto.',
+      'card.cloneOf': 'pezzotto \'e ', 'card.clone': 'clone ↗', 'card.original': 'origginale ↗', 'card.checked': 'cuntrullato ',
+      'card.desk': 'vuto a tavulino', 'card.deskTitle': 'vutato \'a documentazione e screenshot, nun ancora fatto girà d\' \'o bancariello', 'card.grade': 'vuto pezzotto',
+    },
+  };
+  // English is the page itself: capture it once as the fallback for every key.
+  document.querySelectorAll('[data-i18n]').forEach(el => { EN[el.dataset.i18n] = el.innerHTML; });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el => { EN[el.dataset.i18nPh] = el.placeholder; });
+
+  let lang = 'en';
+  const t = key => (I18N[lang] && I18N[lang][key]) || EN[key] || '';
+  function pickLang() {
+    const q = new URLSearchParams(location.search).get('lang');
+    if (LANGS.includes(q)) return q;
+    try { const saved = localStorage.getItem('lang'); if (LANGS.includes(saved)) return saved; } catch (e) {}
+    const nav = (navigator.languages || [navigator.language || 'en']).map(l => l.toLowerCase());
+    if (nav.some(l => l.startsWith('nap'))) return 'nap';
+    if (nav.some(l => l.startsWith('it'))) return 'it';
+    return 'en';
+  }
+  function setLang(l) {
+    lang = LANGS.includes(l) ? l : 'en';
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-i18n]').forEach(el => { el.innerHTML = t(el.dataset.i18n); });
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lang === lang)));
+    try { localStorage.setItem('lang', lang); } catch (e) {}
+    if (typeof render === 'function') render();
+  }
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  // ---------- catalog ----------
   const grid = document.getElementById('grid');
   const empty = document.getElementById('empty');
   const count = document.getElementById('count');
@@ -325,23 +459,23 @@
     <article class="card">
       <div class="row">
         <div>
-          <div class="target">${esc(it.target?.name)}</div>
+          <div class="target">${esc(t('card.cloneOf'))}${esc(it.target?.name)}</div>
           <h3>${esc(it.clone?.name)}</h3>
         </div>
-        <div class="grade" title="pezzotto grade ${esc(it.grade)}">${esc(it.grade || '?')}</div>
+        <div class="grade" title="${esc(t('card.grade'))} ${esc(it.grade)}">${esc(it.grade || '?')}</div>
       </div>
       <div class="chips">
-        <span class="chip status-${esc(it.status)}">${esc(it.status)}</span>
-        ${it.verified && it.verified !== 'run' ? `<span class="chip chip-desk" title="graded from docs and screenshots, not yet run by the stall">desk-graded</span>` : ''}
+        <span class="chip status-${esc(it.status)}">${esc(t('status.' + it.status) || it.status)}</span>
+        ${it.verified && it.verified !== 'run' ? `<span class="chip chip-desk" title="${esc(t('card.deskTitle'))}">${esc(t('card.desk'))}</span>` : ''}
         ${it.clone?.license ? `<span class="chip">${esc(it.clone.license)}</span>` : ''}
         ${(it.clone?.stack || []).map(s => `<span class="chip">${esc(s)}</span>`).join('')}
       </div>
       ${it.notes ? `<p class="notes">${esc(it.notes)}</p>` : ''}
       <div class="links">
-        ${it.clone?.repo ? `<a href="${esc(it.clone.repo)}">clone ↗</a>` : ''}
-        ${it.target?.url ? `<a href="${esc(it.target.url)}">original ↗</a>` : ''}
+        ${it.clone?.repo ? `<a href="${esc(it.clone.repo)}">${esc(t('card.clone'))}</a>` : ''}
+        ${it.target?.url ? `<a href="${esc(it.target.url)}">${esc(t('card.original'))}</a>` : ''}
         ${it.release ? `<span class="count">${esc(it.release)}</span>` : ''}
-        ${it.checked ? `<span class="count">checked ${esc(it.checked)}</span>` : ''}
+        ${it.checked ? `<span class="count">${esc(t('card.checked'))}${esc(it.checked)}</span>` : ''}
       </div>
     </article>`;
 
@@ -357,11 +491,11 @@
     grid.innerHTML = shown.map(card).join('');
     empty.hidden = shown.length > 0;
     if (items.length === 0) { count.textContent = ''; empty.hidden = false; }
-    else count.textContent = `${shown.length} / ${items.length} on the blanket`;
+    else count.textContent = t('catalog.count').replace('%a', shown.length).replace('%b', items.length);
   }
   q.addEventListener('input', render);
   status.addEventListener('change', render);
-  render();
+  setLang(pickLang());
 })();
 </script>
 </body>
