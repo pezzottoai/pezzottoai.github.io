@@ -9,16 +9,16 @@ This repository is the site at **https://pezzotto.ai** and the catalog it serves
 
 ## Two halves
 
-1. **La bancarella — the catalog.** A curated index of open-source, vibecoded clones of
+1. **'O bancariello — the catalog.** A curated index of open-source, vibecoded clones of
    closed-source apps. Each entry names the original, links the clone, records license,
    stack, feature coverage and maintenance status, and assigns a *pezzotto grade*
    (A: fools you at arm's length … D: you'd have to be told). See [`catalog/`](catalog/).
-2. **La fabbrica — the harness.** A tool that drives a coding agent from a closed-source
+2. **'A fraveca — the harness.** A tool that drives a coding agent from a closed-source
    target to a working clone: `spec` the original from public behaviour, `build` it feature
    by feature, `grade` the result, and emit the catalog entry (`stall`). The harness lives
    in its own repository under the [pezzottoai](https://github.com/pezzottoai) organization.
 
-3. **Il garzone — the launcher.** The [pezzotto.ai launcher](https://github.com/pezzottoai/launcher)
+3. **'O guaglione — the launcher.** The [pezzotto.ai launcher](https://github.com/pezzottoai/launcher)
    installs and launches open-source apps, including the clones on the blanket, on Linux,
    Windows and macOS. Its own app manifests live in
    [launcher-catalog](https://github.com/pezzottoai/launcher-catalog).

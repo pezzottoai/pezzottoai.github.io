@@ -197,7 +197,8 @@
     <b>pezzotto</b> <i>/pe'tsɔt.to/ — noun, Neapolitan.</i><br>
     1. A counterfeit. The bootleg CD on a blanket outside the station, the handbag with one extra letter in the logo.<br>
     2. A patch; something stitched together from pieces (<i>pezzi</i>) that mostly works.<br>
-    3. <i>(here)</i> A vibecoded, open-source reconstruction of a closed-source app.
+    3. <i>(here)</i> A vibecoded, open-source reconstruction of a closed-source app.<br>
+    <i>See also:</i> <b>'o bancariello</b>, the stall; <b>'a fraveca</b>, the works (as in <i>pare 'a fraveca 'e San Pietro</i>, the job that never ends); <b>'o guaglione</b>, the shop boy who hands you the goods.
   </div>
   <p class="lede">Every popular closed-source app now has a dozen clones built in an afternoon with a coding agent. Most are abandoned. Some are excellent. None of them are labelled.</p>
   <p>pezzotto.ai takes the joke seriously. We catalog the knock-offs, grade how convincing they are, tell you which ones are still alive, and publish the harness we use to make our own — openly, with the name of the original right on the price tag.</p>
@@ -208,7 +209,7 @@
   <div class="pillars">
     <article class="pillar">
       <span class="num">01</span>
-      <h3>La bancarella <em>the catalog</em></h3>
+      <h3>'O bancariello <em>the catalog</em></h3>
       <p>A curated index of vibecoded clones of closed-source apps. Each entry names the original, links the clone, records license, stack and feature coverage, tracks whether it is still maintained, and gives it a <a href="#grade">pezzotto grade</a>.</p>
       <ul>
         <li>One JSON file per stall: <code>catalog/clones.json</code></li>
@@ -218,7 +219,7 @@
     </article>
     <article class="pillar">
       <span class="num">02</span>
-      <h3>La fabbrica <em>the harness</em></h3>
+      <h3>'A fraveca <em>the harness</em></h3>
       <p>A harness that drives a coding agent from a closed-source target to a working clone. It writes the spec from public behaviour, builds, grades the result against the spec, and produces the catalog entry as a by-product.</p>
       <ul>
         <li><code>spec</code> — reverse a feature map from docs, screenshots, public behaviour</li>
@@ -229,7 +230,7 @@
     </article>
     <article class="pillar" id="launcher">
       <span class="num">03</span>
-      <h3>Il garzone <em>the launcher</em></h3>
+      <h3>'O guaglione <em>the launcher</em></h3>
       <p>The <b>pezzotto.ai launcher</b> hands you the goods: a small cross-platform installer and launcher for open-source apps, including the knock-offs on this blanket. Browse by topic, install with one click, launch, remove. Rust and egui, no account, works offline once the catalog is cached.</p>
       <ul>
         <li><a href="https://github.com/pezzottoai/launcher/releases/latest">Download</a> for Linux, Windows and macOS (<a href="https://github.com/pezzottoai/launcher/releases/tag/nightly">nightly</a> builds too)</li>
@@ -241,7 +242,7 @@
 </section>
 
 <section id="catalog">
-  <h2><small>La bancarella</small>What's on the blanket</h2>
+  <h2><small>'O bancariello</small>What's on the blanket</h2>
   <div class="toolbar">
     <label class="sr" for="q">Search the catalog</label>
     <input id="q" type="search" placeholder="search by original, clone, stack…" autocomplete="off">
