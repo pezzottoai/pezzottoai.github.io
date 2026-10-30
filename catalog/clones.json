@@ -498,5 +498,54 @@
     "checked": "2026-10-30",
     "release": "v0.15.0 (2026-10-28)",
     "notes": "ArtCraft. No account, no telemetry badge is the whole pitch versus the original. Desk-graded."
+  },
+  {
+    "id": "chord",
+    "target": {
+      "name": "Arc (The Browser Company)",
+      "url": "https://arc.net",
+      "category": "browser"
+    },
+    "clone": {
+      "name": "Chord",
+      "repo": "https://github.com/sirmmo/chord",
+      "url": "https://ingmmo.com/chord/",
+      "license": "MIT",
+      "stack": [
+        "electron",
+        "typescript",
+        "chromium"
+      ]
+    },
+    "coverage": [
+      "sidebar with Spaces, Favorites, Pinned and Today tabs",
+      "auto-archiving",
+      "command bar instead of URL bar",
+      "split view with custom layouts",
+      "Little windows and sidebar peek",
+      "profiles per space",
+      "Air Traffic Control link routing",
+      "boosts",
+      "picture-in-picture",
+      "downloads, history, passwords and passkeys",
+      "ad and tracker blocking, encrypted DNS, GPC",
+      "Chrome extensions",
+      "Research and AI modes (WebMCP)",
+      "auto-update"
+    ],
+    "missing": [
+      "signed and notarised macOS/Windows builds",
+      "cross-device sync",
+      "mobile companion (Arc Search)",
+      "Arc Max AI features"
+    ],
+    "status": "alive",
+    "grade": "B",
+    "verified": "desk",
+    "vibecoded_with": "claude-code",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.45.0 (2026-10-29)",
+    "notes": "A chord is the straight line between two points on an arc. Four days old at v0.45.0, with the whole Arc vocabulary already in place. The original went into maintenance in 2025; the knock-off ships daily. Desk-graded."
   }
 ]
