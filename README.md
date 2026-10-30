@@ -5,7 +5,7 @@
 
 A street stall of vibecoded clones of closed-source apps, and the workshop that makes them.
 
-This repository is the site at **https://pezzottoai.github.io** and the catalog it serves.
+This repository is the site at **https://pezzotto.ai** and the catalog it serves.
 
 ## Two halves
 

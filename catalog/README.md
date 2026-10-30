@@ -1,7 +1,7 @@
 # Catalog
 
 `clones.json` is the whole stall: a JSON array of entries, one per clone. The site at
-https://pezzottoai.github.io renders it directly. No build step.
+https://pezzotto.ai renders it directly. No build step.
 
 ## Entry
 
