@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>pezzotto.ai</title>
+<meta name="description" content="pezzotto.ai — a curated catalog of vibecoded clones of closed-source apps, and a harness that builds them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f3eee2;
+    --paper-2: #e9e2d0;
+    --ink: #161412;
+    --ink-2: #4a4440;
+    --tarp: #1f4fd8;
+    --stamp: #c8312b;
+    --tag: #fff7cf;
+    --rule: #161412;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --display: "Archivo Black", Impact, "Arial Black", sans-serif;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #17150f;
+      --paper-2: #221f17;
+      --ink: #f0e9d8;
+      --ink-2: #b4ab98;
+      --tarp: #6f93ff;
+      --stamp: #ff6a5f;
+      --tag: #2b2715;
+      --rule: #f0e9d8;
+      color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.55;
+    padding: 0 clamp(16px, 4vw, 48px) env(safe-area-inset-bottom, 0px);
+    background-image:
+      repeating-linear-gradient(0deg, transparent 0 39px, color-mix(in srgb, var(--ink) 6%, transparent) 39px 40px);
+    background-attachment: fixed;
+  }
+  a { color: inherit; text-decoration-color: var(--tarp); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  a:hover { color: var(--tarp); }
+  .wrap { max-width: 1040px; margin: 0 auto; }
+
+  /* masthead */
+  header.mast {
+    padding: clamp(28px, 6vw, 72px) 0 clamp(20px, 4vw, 40px);
+    border-bottom: 4px solid var(--rule);
+    position: relative;
+  }
+  .kicker {
+    font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-2); margin: 0 0 10px;
+  }
+  h1.logo {
+    font-family: var(--display);
+    font-size: clamp(56px, 13vw, 164px);
+    line-height: .9;
+    margin: 0;
+    letter-spacing: -.02em;
+    text-transform: lowercase;
+    word-break: break-word;
+  }
+  h1.logo .dot { color: var(--tarp); }
+  .tagline {
+    font-size: clamp(20px, 2.6vw, 28px);
+    max-width: 30ch;
+    margin: 22px 0 0;
+    line-height: 1.25;
+  }
+  .stamp {
+    position: absolute; right: 0; top: clamp(24px, 5vw, 56px);
+    transform: rotate(-9deg);
+    border: 3px solid var(--stamp); color: var(--stamp);
+    font-family: var(--mono); font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    padding: 6px 12px; font-size: 13px; opacity: .9;
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='60'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 1.4 -.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    mask-size: 120px 60px;
+  }
+  @media (max-width: 600px) { .stamp { position: static; display: inline-block; margin-top: 18px; transform: rotate(-4deg); } }
+
+  nav.toc { display: flex; flex-wrap: wrap; gap: 10px 24px; padding: 14px 0; border-bottom: 1px solid var(--rule); font-family: var(--mono); font-size: 14px; }
+  nav.toc a { text-decoration: none; }
+  nav.toc a::before { content: "→ "; color: var(--tarp); }
+
+  section { padding: clamp(36px, 6vw, 72px) 0; border-bottom: 1px solid color-mix(in srgb, var(--ink) 25%, transparent); }
+  section:last-of-type { border-bottom: 0; }
+  h2 {
+    font-family: var(--display); font-size: clamp(28px, 4.5vw, 44px); line-height: 1.05; margin: 0 0 18px; letter-spacing: -.01em;
+  }
+  h2 small { display: block; font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 8px; font-weight: 400; }
+  p { max-width: 66ch; margin: 0 0 1em; }
+  .lede { font-size: clamp(19px, 2.2vw, 23px); line-height: 1.4; }
+
+  .def {
+    font-family: var(--mono); background: var(--tag); border: 1px solid var(--rule);
+    padding: 16px 18px; margin: 24px 0; max-width: 62ch; box-shadow: 4px 4px 0 var(--rule);
+  }
+  .def b { font-weight: 600; }
+  .def i { color: var(--ink-2); }
+
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 28px; }
+  .pillar { border: 2px solid var(--rule); padding: 22px; background: var(--paper-2); position: relative; }
+  .pillar .num { position: absolute; top: -14px; left: 16px; background: var(--tarp); color: #fff; font-family: var(--mono); font-weight: 600; font-size: 12px; letter-spacing: .12em; padding: 3px 9px; }
+  .pillar h3 { font-family: var(--display); font-size: 26px; margin: 6px 0 4px; }
+  .pillar h3 em { font-style: normal; color: var(--ink-2); font-family: var(--mono); font-size: 14px; font-weight: 400; display: block; letter-spacing: .08em; text-transform: uppercase; }
+  .pillar ul { padding-left: 18px; margin: 12px 0 0; }
+  .pillar li { margin: 6px 0; }
+
+  /* catalog */
+  .toolbar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin: 8px 0 20px; font-family: var(--mono); font-size: 14px; }
+  .toolbar input, .toolbar select {
+    font: inherit; padding: 8px 10px; border: 2px solid var(--rule); background: var(--paper); color: var(--ink); min-width: 0;
+  }
+  .toolbar input { flex: 1 1 220px; }
+  .count { color: var(--ink-2); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 18px; }
+  .card {
+    border: 2px solid var(--rule); background: var(--paper-2); padding: 16px; display: flex; flex-direction: column; gap: 8px;
+    box-shadow: 5px 5px 0 var(--rule); transition: transform .12s ease;
+  }
+  .card:hover { transform: translate(-2px,-2px); }
+  .card .row { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+  .card .target { font-family: var(--mono); font-size: 13px; color: var(--ink-2); text-transform: uppercase; letter-spacing: .08em; }
+  .card .target::before { content: "knock-off of "; text-transform: none; letter-spacing: 0; }
+  .card h3 { font-family: var(--display); font-size: 22px; margin: 0; line-height: 1.1; }
+  .card .grade {
+    font-family: var(--display); font-size: 28px; line-height: 1; color: var(--stamp);
+    border: 2px solid var(--stamp); width: 42px; height: 42px; display: grid; place-items: center; transform: rotate(6deg);
+  }
+  .card .notes { font-size: 15px; color: var(--ink-2); margin: 0; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chip { font-family: var(--mono); font-size: 12px; border: 1px solid var(--ink-2); padding: 2px 7px; }
+  .chip.status-alive { border-color: var(--tarp); color: var(--tarp); }
+  .chip.status-stale { border-color: #b7791f; color: #b7791f; }
+  .chip.status-abandoned { border-color: var(--stamp); color: var(--stamp); }
+  .card .links { font-family: var(--mono); font-size: 13px; margin-top: auto; padding-top: 6px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .empty {
+    border: 2px dashed var(--ink-2); padding: 36px 24px; text-align: center; font-family: var(--mono); color: var(--ink-2);
+  }
+  .empty b { color: var(--ink); display: block; font-size: 18px; margin-bottom: 8px; }
+
+  .scale { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 12px; margin: 20px 0 0; }
+  .scale div { border: 1px solid var(--rule); padding: 12px; font-size: 15px; }
+  .scale div b { font-family: var(--display); color: var(--stamp); font-size: 24px; display: block; margin-bottom: 4px; }
+
+  pre {
+    font-family: var(--mono); font-size: 13.5px; line-height: 1.5; background: var(--paper-2); border: 2px solid var(--rule);
+    padding: 16px; overflow-x: auto; margin: 18px 0; max-width: 100%;
+  }
+  code { font-family: var(--mono); font-size: .92em; background: var(--paper-2); padding: 1px 5px; }
+  pre code { background: none; padding: 0; }
+  ol.steps { padding-left: 22px; max-width: 66ch; }
+  ol.steps li { margin: 10px 0; }
+
+  footer { padding: 36px 0 48px; font-family: var(--mono); font-size: 13px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 10px 28px; border-top: 4px solid var(--rule); }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="mast">
+  <p class="kicker">Open-source knock-offs, honestly labelled</p>
+  <h1 class="logo">pezzotto<span class="dot">.</span>ai</h1>
+  <p class="tagline">A street stall of vibecoded clones of closed-source apps — and the workshop that makes them.</p>
+  <span class="stamp" aria-hidden="true">100% pezzotto</span>
+</header>
+
+<nav class="toc" aria-label="Sections">
+  <a href="#what">What is a pezzotto</a>
+  <a href="#how">Two halves</a>
+  <a href="#catalog">The stall</a>
+  <a href="#grade">The grade</a>
+  <a href="#submit">Add a clone</a>
+  <a href="https://github.com/pezzottoai">GitHub</a>
+</nav>
+
+<section id="what">
+  <h2><small>Glossary</small>What is a pezzotto?</h2>
+  <div class="def">
+    <b>pezzotto</b> <i>/pe'tsɔt.to/ — noun, Neapolitan.</i><br>
+    1. A counterfeit. The bootleg CD on a blanket outside the station, the handbag with one extra letter in the logo.<br>
+    2. A patch; something stitched together from pieces (<i>pezzi</i>) that mostly works.<br>
+    3. <i>(here)</i> A vibecoded, open-source reconstruction of a closed-source app.
+  </div>
+  <p class="lede">Every popular closed-source app now has a dozen clones built in an afternoon with a coding agent. Most are abandoned. Some are excellent. None of them are labelled.</p>
+  <p>pezzotto.ai takes the joke seriously. We catalog the knock-offs, grade how convincing they are, tell you which ones are still alive, and publish the harness we use to make our own — openly, with the name of the original right on the price tag.</p>
+</section>
+
+<section id="how">
+  <h2><small>Structure</small>Two halves of the same stall</h2>
+  <div class="pillars">
+    <article class="pillar">
+      <span class="num">01</span>
+      <h3>La bancarella <em>the catalog</em></h3>
+      <p>A curated index of vibecoded clones of closed-source apps. Each entry names the original, links the clone, records license, stack and feature coverage, tracks whether it is still maintained, and gives it a <a href="#grade">pezzotto grade</a>.</p>
+      <ul>
+        <li>One JSON file per stall: <code>catalog/clones.json</code></li>
+        <li>Human-reviewed. No bots adding themselves.</li>
+        <li>Re-checked periodically: dead clones get marked, not deleted.</li>
+      </ul>
+    </article>
+    <article class="pillar">
+      <span class="num">02</span>
+      <h3>La fabbrica <em>the harness</em></h3>
+      <p>A harness that drives a coding agent from a closed-source target to a working clone. It writes the spec from public behaviour, builds, grades the result against the spec, and produces the catalog entry as a by-product.</p>
+      <ul>
+        <li><code>spec</code> — reverse a feature map from docs, screenshots, public behaviour</li>
+        <li><code>build</code> — drive the agent, one feature at a time</li>
+        <li><code>grade</code> — score coverage and fidelity</li>
+        <li><code>stall</code> — emit the catalog entry</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="catalog">
+  <h2><small>La bancarella</small>What's on the blanket</h2>
+  <div class="toolbar">
+    <label class="sr" for="q">Search the catalog</label>
+    <input id="q" type="search" placeholder="search by original, clone, stack…" autocomplete="off">
+    <label class="sr" for="status">Filter by status</label>
+    <select id="status">
+      <option value="">any status</option>
+      <option value="alive">alive</option>
+      <option value="stale">stale</option>
+      <option value="abandoned">abandoned</option>
+    </select>
+    <span class="count" id="count"></span>
+  </div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>
+    <b>Nothing on the blanket yet.</b>
+    The stall is open. <a href="#submit">Bring a clone.</a>
+  </div>
+</section>
+
+<section id="grade">
+  <h2><small>Rating</small>The pezzotto grade</h2>
+  <p>Fidelity is judged the way you'd judge a bag at the market: from how far away does it still fool you? The grade covers looks and behaviour, not code quality. Code quality gets its own fields.</p>
+  <div class="scale">
+    <div><b>A</b> Indistinguishable at arm's length. You could hand it to a user of the original.</div>
+    <div><b>B</b> Convincing from three metres. Core flows match; details drift.</div>
+    <div><b>C</b> Recognisable from across the street. The shape is right, half the features are missing.</div>
+    <div><b>D</b> You'd have to be told. A landing page and a dream.</div>
+  </div>
+</section>
+
+<section id="submit">
+  <h2><small>Contribute</small>Add a clone to the stall</h2>
+  <ol class="steps">
+    <li>Fork <a href="https://github.com/pezzottoai/pezzottoai.github.io">pezzottoai/pezzottoai.github.io</a>.</li>
+    <li>Append an entry to <code>catalog/clones.json</code>. Any clone qualifies, yours or someone else's, as long as it is open source and the original is closed source.</li>
+    <li>Open a pull request. A human checks the repo actually runs, then grades it.</li>
+  </ol>
+  <pre><code>{
+  "id": "example-notes",
+  "target":  { "name": "Original App", "url": "https://original.example", "category": "notes" },
+  "clone":   { "name": "Pezzotto Notes", "repo": "https://github.com/someone/pezzotto-notes",
+               "license": "MIT", "stack": ["sveltekit", "sqlite"] },
+  "coverage": ["editor", "sync", "sharing"],
+  "missing":  ["mobile app", "offline"],
+  "status":   "alive",
+  "grade":    "B",
+  "vibecoded_with": "claude-code",
+  "added":    "2026-10-30",
+  "checked":  "2026-10-30",
+  "notes":    "Single-user only; sync is a cron job and a prayer."
+}</code></pre>
+  <p>Fields: <code>status</code> is <code>alive</code> (commits in the last 90 days), <code>stale</code> (90 days to a year) or <code>abandoned</code>. <code>grade</code> follows the scale above. <code>vibecoded_with</code> names the agent or tool the clone was mostly built with, if known.</p>
+</section>
+
+<footer>
+  <span>pezzotto.ai · <a href="https://github.com/pezzottoai">github.com/pezzottoai</a></span>
+  <span>site &amp; harness: MIT · catalog data: CC0</span>
+  <span>no affiliation with any original. that's the point.</span>
+</footer>
+
+</div>
+
+<script>
+(async function () {
+  const grid = document.getElementById('grid');
+  const empty = document.getElementById('empty');
+  const count = document.getElementById('count');
+  const q = document.getElementById('q');
+  const status = document.getElementById('status');
+  let items = [];
+  try {
+    const r = await fetch('catalog/clones.json', { cache: 'no-cache' });
+    if (r.ok) items = await r.json();
+  } catch (e) { items = []; }
+
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const card = it => `
+    <article class="card">
+      <div class="row">
+        <div>
+          <div class="target">${esc(it.target?.name)}</div>
+          <h3>${esc(it.clone?.name)}</h3>
+        </div>
+        <div class="grade" title="pezzotto grade ${esc(it.grade)}">${esc(it.grade || '?')}</div>
+      </div>
+      <div class="chips">
+        <span class="chip status-${esc(it.status)}">${esc(it.status)}</span>
+        ${it.clone?.license ? `<span class="chip">${esc(it.clone.license)}</span>` : ''}
+        ${(it.clone?.stack || []).map(s => `<span class="chip">${esc(s)}</span>`).join('')}
+      </div>
+      ${it.notes ? `<p class="notes">${esc(it.notes)}</p>` : ''}
+      <div class="links">
+        ${it.clone?.repo ? `<a href="${esc(it.clone.repo)}">clone ↗</a>` : ''}
+        ${it.target?.url ? `<a href="${esc(it.target.url)}">original ↗</a>` : ''}
+        ${it.checked ? `<span class="count">checked ${esc(it.checked)}</span>` : ''}
+      </div>
+    </article>`;
+
+  function render() {
+    const term = q.value.trim().toLowerCase();
+    const st = status.value;
+    const shown = items.filter(it => {
+      if (st && it.status !== st) return false;
+      if (!term) return true;
+      const hay = [it.target?.name, it.target?.category, it.clone?.name, ...(it.clone?.stack || []), ...(it.coverage || []), it.notes].join(' ').toLowerCase();
+      return hay.includes(term);
+    });
+    grid.innerHTML = shown.map(card).join('');
+    empty.hidden = shown.length > 0;
+    if (items.length === 0) { count.textContent = ''; empty.hidden = false; }
+    else count.textContent = `${shown.length} / ${items.length} on the blanket`;
+  }
+  q.addEventListener('input', render);
+  status.addEventListener('change', render);
+  render();
+})();
+</script>
+</body>
+</html>
