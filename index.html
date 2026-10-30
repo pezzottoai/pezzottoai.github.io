@@ -146,6 +146,7 @@
   .chip.status-alive { border-color: var(--tarp); color: var(--tarp); }
   .chip.status-stale { border-color: #b7791f; color: #b7791f; }
   .chip.status-abandoned { border-color: var(--stamp); color: var(--stamp); }
+  .chip.chip-desk { border-style: dashed; }
   .card .links { font-family: var(--mono); font-size: 13px; margin-top: auto; padding-top: 6px; display: flex; gap: 14px; flex-wrap: wrap; }
   .empty {
     border: 2px dashed var(--ink-2); padding: 36px 24px; text-align: center; font-family: var(--mono); color: var(--ink-2);
@@ -275,12 +276,14 @@
   "missing":  ["mobile app", "offline"],
   "status":   "alive",
   "grade":    "B",
+  "verified": "desk",
+  "release":  "v0.3.0 (2026-10-20)",
   "vibecoded_with": "claude-code",
   "added":    "2026-10-30",
   "checked":  "2026-10-30",
   "notes":    "Single-user only; sync is a cron job and a prayer."
 }</code></pre>
-  <p>Fields: <code>status</code> is <code>alive</code> (commits in the last 90 days), <code>stale</code> (90 days to a year) or <code>abandoned</code>. <code>grade</code> follows the scale above. <code>vibecoded_with</code> names the agent or tool the clone was mostly built with, if known.</p>
+  <p>Fields: <code>status</code> is <code>alive</code> (commits in the last 90 days), <code>stale</code> (90 days to a year) or <code>abandoned</code>. <code>grade</code> follows the scale above. <code>verified</code> is <code>run</code> once someone at the stall has actually run the clone, <code>desk</code> while the grade rests on docs, screenshots and the project's own parity numbers. <code>vibecoded_with</code> names the agent or tool the clone was mostly built with, if known.</p>
 </section>
 
 <footer>
@@ -316,6 +319,7 @@
       </div>
       <div class="chips">
         <span class="chip status-${esc(it.status)}">${esc(it.status)}</span>
+        ${it.verified && it.verified !== 'run' ? `<span class="chip chip-desk" title="graded from docs and screenshots, not yet run by the stall">desk-graded</span>` : ''}
         ${it.clone?.license ? `<span class="chip">${esc(it.clone.license)}</span>` : ''}
         ${(it.clone?.stack || []).map(s => `<span class="chip">${esc(s)}</span>`).join('')}
       </div>
@@ -323,6 +327,7 @@
       <div class="links">
         ${it.clone?.repo ? `<a href="${esc(it.clone.repo)}">clone ↗</a>` : ''}
         ${it.target?.url ? `<a href="${esc(it.target.url)}">original ↗</a>` : ''}
+        ${it.release ? `<span class="count">${esc(it.release)}</span>` : ''}
         ${it.checked ? `<span class="count">checked ${esc(it.checked)}</span>` : ''}
       </div>
     </article>`;

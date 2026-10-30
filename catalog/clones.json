@@ -1,1 +1,502 @@
-[]
+[
+  {
+    "id": "rustgis",
+    "target": {
+      "name": "ArcGIS Pro (Esri)",
+      "url": "https://www.esri.com/en-us/arcgis/products/arcgis-pro/overview",
+      "category": "gis"
+    },
+    "clone": {
+      "name": "RustGIS",
+      "repo": "https://github.com/opengeos/RustGIS",
+      "url": "https://rustgis.app",
+      "license": "Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm",
+        "python",
+        "plugins"
+      ]
+    },
+    "coverage": [
+      "ribbon (Home/Data/Style/Edit/Analyze/View/Publish)",
+      "layers and browser panes",
+      "attribute table",
+      "symbology",
+      "GeoTIFF/COG rasters",
+      "3D globe and projections",
+      "1,000+ GeoLibre/Whitebox tools",
+      "web app (WASM)",
+      "CLI and scripting",
+      "AI assistant",
+      "WASM plugin registry",
+      "PyPI package"
+    ],
+    "missing": [
+      "geodatabase (.gdb) editing",
+      "ArcGIS Online / Enterprise integration",
+      "ModelBuilder-style visual models",
+      "layouts and map series parity"
+    ],
+    "status": "alive",
+    "grade": "B",
+    "verified": "desk",
+    "vibecoded_with": "agents (AGENTS.md)",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.4.0 (2026-10-25)",
+    "notes": "Three weeks old and already on the Microsoft Store, PyPI and a Zenodo DOI. The ribbon is laid out like ArcGIS Pro's; the engine underneath is its own. Desk-graded from docs and screenshots, not yet run by the stall."
+  },
+  {
+    "id": "gridcraft",
+    "target": {
+      "name": "Microsoft Excel",
+      "url": "https://www.microsoft.com/microsoft-365/excel",
+      "category": "spreadsheet"
+    },
+    "clone": {
+      "name": "GridCraft",
+      "repo": "https://github.com/storytold/gridcraft",
+      "url": "https://getartcraft.com/apps/gridcraft",
+      "license": "MIT OR Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm",
+        "mcp"
+      ]
+    },
+    "coverage": [
+      "ribbon",
+      "513 worksheet functions",
+      "tables and conditional formatting",
+      "sparklines",
+      "charts",
+      "xlsx read/write",
+      "CLI, JSON control channel, MCP",
+      "web (WASM)",
+      "plugins (Python, R, .NET, VBA via sister repos)"
+    ],
+    "missing": [
+      ".xls import",
+      "xlsx fidelity on real-world files",
+      "very large workbooks / multithreaded recalc",
+      "chart depth"
+    ],
+    "status": "alive",
+    "grade": "C",
+    "verified": "desk",
+    "vibecoded_with": "claude-code",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.13.0 (2026-10-28)",
+    "notes": "ArtCraft. Self-reports 89% ribbon coverage but 'about 50% ready for real work'. Honest about being alpha. Desk-graded."
+  },
+  {
+    "id": "wordcraft",
+    "target": {
+      "name": "Microsoft Word",
+      "url": "https://www.microsoft.com/microsoft-365/word",
+      "category": "word-processor"
+    },
+    "clone": {
+      "name": "WordCraft",
+      "repo": "https://github.com/storytold/wordcraft",
+      "url": "https://getartcraft.com/apps/wordcraft",
+      "license": "MIT OR Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm",
+        "mcp"
+      ]
+    },
+    "coverage": [
+      "ribbon and styles",
+      "docx read/write",
+      "tables",
+      "track changes",
+      "references (TOC, footnotes)",
+      "mail merge",
+      "headers/footers, sections, columns",
+      "pictures and shapes with text wrap",
+      "IME, AutoCorrect, find/replace",
+      "CLI and MCP",
+      "web (WASM)"
+    ],
+    "missing": [
+      "legacy .doc",
+      "co-authoring (in sister repo craft-collab)",
+      "VBA/macros",
+      "full equation editor parity"
+    ],
+    "status": "alive",
+    "grade": "B",
+    "verified": "desk",
+    "vibecoded_with": "claude-code",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.12.0 (2026-10-28)",
+    "notes": "ArtCraft. The feature table reads like Word's own. Reads and writes .docx. Desk-graded."
+  },
+  {
+    "id": "deckcraft",
+    "target": {
+      "name": "Microsoft PowerPoint",
+      "url": "https://www.microsoft.com/microsoft-365/powerpoint",
+      "category": "presentation"
+    },
+    "clone": {
+      "name": "DeckCraft",
+      "repo": "https://github.com/storytold/deckcraft",
+      "url": "https://getartcraft.com/apps/deckcraft",
+      "license": "MIT OR Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm",
+        "mcp"
+      ]
+    },
+    "coverage": [
+      "masters, layouts, themes",
+      "150+ shapes, connectors, merge shapes",
+      "pictures, tables, charts, SmartArt basics",
+      "audio/video",
+      "transitions incl. Morph",
+      "animations and motion paths",
+      "presenter view, pen, rehearse timings",
+      "pptx open/save",
+      "PDF/PNG/GIF export",
+      "200+ commands, CLI, MCP"
+    ],
+    "missing": [
+      "legacy .ppt",
+      "Designer-style AI layouts",
+      "co-authoring",
+      "add-ins"
+    ],
+    "status": "alive",
+    "grade": "B",
+    "verified": "desk",
+    "vibecoded_with": "claude-code",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.12.0 (2026-10-28)",
+    "notes": "ArtCraft. Alpha heading for beta; Morph transitions and presenter view are the tell that someone studied the original closely. Desk-graded."
+  },
+  {
+    "id": "photocraft",
+    "target": {
+      "name": "Adobe Photoshop",
+      "url": "https://www.adobe.com/products/photoshop.html",
+      "category": "raster-editor"
+    },
+    "clone": {
+      "name": "PhotoCraft",
+      "repo": "https://github.com/storytold/photocraft",
+      "url": "https://getartcraft.com/apps/photocraft",
+      "license": "MIT OR Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm"
+      ]
+    },
+    "coverage": [
+      "layers and masks",
+      "adjustment layers",
+      "layer styles",
+      "type",
+      "vectors",
+      "brushes",
+      "PSD read/write",
+      "web (WASM)"
+    ],
+    "missing": [
+      "generative/AI fills",
+      "camera raw parity",
+      "3D",
+      "plugin ecosystem"
+    ],
+    "status": "alive",
+    "grade": "C",
+    "verified": "desk",
+    "vibecoded_with": "agents (AGENTS.md)",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.17.0 (2026-10-28)",
+    "notes": "ArtCraft. Self-declared early alpha despite 75k stars. Real PSD files is the headline. Desk-graded."
+  },
+  {
+    "id": "lightcraft",
+    "target": {
+      "name": "Adobe Lightroom Classic",
+      "url": "https://www.adobe.com/products/photoshop-lightroom-classic.html",
+      "category": "photo-library"
+    },
+    "clone": {
+      "name": "LightCraft",
+      "repo": "https://github.com/storytold/lightcraft",
+      "url": "https://getartcraft.com/apps/lightcraft",
+      "license": "MIT OR Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm",
+        "mcp"
+      ]
+    },
+    "coverage": [
+      "non-destructive library",
+      "raw development",
+      "MCP server",
+      "web (WASM)"
+    ],
+    "missing": [
+      "cloud sync",
+      "mobile",
+      "AI masking parity",
+      "plugin ecosystem"
+    ],
+    "status": "alive",
+    "grade": "C",
+    "verified": "desk",
+    "vibecoded_with": "claude-code",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.15.0 (2026-10-28)",
+    "notes": "ArtCraft. 'Young and moving fast' per its own badge. Desk-graded."
+  },
+  {
+    "id": "vectorcraft",
+    "target": {
+      "name": "Adobe Illustrator",
+      "url": "https://www.adobe.com/products/illustrator.html",
+      "category": "vector-editor"
+    },
+    "clone": {
+      "name": "VectorCraft",
+      "repo": "https://github.com/storytold/vectorcraft",
+      "url": "https://getartcraft.com/apps/vectorcraft",
+      "license": "MIT OR Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm",
+        "mcp"
+      ]
+    },
+    "coverage": [
+      "drawing and path tools",
+      "Pathfinder and Shape Builder",
+      "gradients, appearance, transparency",
+      "type with styles, threading, bidi",
+      "SVG, PDF, PDF-compatible .ai, legacy .ai v7, EPS, DXF, EMF/WMF",
+      "PSD in/out",
+      "Affinity document import",
+      "Print, Package",
+      "MCP server",
+      "web (WASM)"
+    ],
+    "missing": [
+      "modern native .ai internals beyond PDF stream",
+      "plugin ecosystem",
+      "cloud libraries"
+    ],
+    "status": "alive",
+    "grade": "B",
+    "verified": "desk",
+    "vibecoded_with": "claude-code",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.18.0 (2026-10-28)",
+    "notes": "ArtCraft. Self-reports ~88% breadth, ~65% ready for real work. Opens Affinity files too, which the original does not. Desk-graded."
+  },
+  {
+    "id": "effectcraft",
+    "target": {
+      "name": "Adobe After Effects",
+      "url": "https://www.adobe.com/products/aftereffects.html",
+      "category": "motion-graphics"
+    },
+    "clone": {
+      "name": "EffectCraft",
+      "repo": "https://github.com/storytold/effectcraft",
+      "url": "https://getartcraft.com/apps/effectcraft",
+      "license": "MIT OR Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm"
+      ]
+    },
+    "coverage": [
+      "compositions and layers",
+      "keyframes",
+      "308 effects",
+      "layer styles",
+      "expressions",
+      "3D cameras and lights",
+      "render queue",
+      "web (WASM)"
+    ],
+    "missing": [
+      ".aep import",
+      "third-party plugin hosting",
+      "Cinema 4D renderer",
+      "Dynamic Link"
+    ],
+    "status": "alive",
+    "grade": "C",
+    "verified": "desk",
+    "vibecoded_with": "claude-code",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.18.0 (2026-10-28)",
+    "notes": "ArtCraft. Already usable per README; expressions and 3D cameras suggest ambition. Desk-graded."
+  },
+  {
+    "id": "filmcraft",
+    "target": {
+      "name": "Adobe Premiere Pro",
+      "url": "https://www.adobe.com/products/premiere.html",
+      "category": "video-editor"
+    },
+    "clone": {
+      "name": "FilmCraft",
+      "repo": "https://github.com/storytold/filmcraft",
+      "url": "https://getartcraft.com/apps/filmcraft",
+      "license": "MIT OR Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm"
+      ]
+    },
+    "coverage": [
+      "editing and trimming",
+      "multicam",
+      "colour",
+      "keyframes and effects",
+      "titles and captions",
+      "audio mixing",
+      "hardware decode (macOS/Windows, partial Linux)",
+      "FCP7 XML / AAF / OTIO interchange",
+      "H.264/H.265 export"
+    ],
+    "missing": [
+      ".prproj import",
+      "VST3/AU/OpenFX plugins",
+      "GPU colour grading and export",
+      "broad delivery codecs"
+    ],
+    "status": "alive",
+    "grade": "C",
+    "verified": "desk",
+    "vibecoded_with": "claude-code",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.14.0 (2026-10-28)",
+    "notes": "ArtCraft. Self-reports ~86% breadth, ~56% ready for real work; honest gaps list in README. Desk-graded."
+  },
+  {
+    "id": "designcraft",
+    "target": {
+      "name": "Adobe InDesign",
+      "url": "https://www.adobe.com/products/indesign.html",
+      "category": "page-layout"
+    },
+    "clone": {
+      "name": "DesignCraft",
+      "repo": "https://github.com/storytold/designcraft",
+      "url": "https://getartcraft.com/apps/designcraft",
+      "license": "MIT OR Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm",
+        "mcp"
+      ]
+    },
+    "coverage": [
+      "spreads, parent/master pages",
+      "threaded text frames",
+      "paragraph and character styles",
+      "Knuth-Plass composer, hyphenation, optical margins",
+      "tables, text wrap, baseline grid",
+      "IDML import/export",
+      "INDD import (indd-utils)",
+      "PDF/X-4, PDF/A-2b, EPUB, PNG, editable pptx export",
+      "JSON control channel and MCP",
+      "web (WASM)"
+    ],
+    "missing": [
+      "INDD export",
+      "InCopy-style workflows",
+      "plugin ecosystem",
+      "Publish Online"
+    ],
+    "status": "alive",
+    "grade": "B",
+    "verified": "desk",
+    "vibecoded_with": "claude-code",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.14.0 (2026-10-28)",
+    "notes": "ArtCraft. The typesetting engine is the serious part; INDD import via a sibling crate. Desk-graded."
+  },
+  {
+    "id": "pdfcraft",
+    "target": {
+      "name": "Adobe Acrobat",
+      "url": "https://www.adobe.com/acrobat.html",
+      "category": "pdf"
+    },
+    "clone": {
+      "name": "PdfCraft",
+      "repo": "https://github.com/storytold/pdfcraft",
+      "url": "https://getartcraft.com/apps/pdfcraft",
+      "license": "MIT OR Apache-2.0",
+      "stack": [
+        "rust",
+        "egui",
+        "wgpu",
+        "wasm"
+      ]
+    },
+    "coverage": [
+      "reader",
+      "organize pages",
+      "combine and split",
+      "security",
+      "threaded comments",
+      "web (WASM)"
+    ],
+    "missing": [
+      "forms authoring parity",
+      "redaction workflows",
+      "e-signature services",
+      "OCR"
+    ],
+    "status": "alive",
+    "grade": "B",
+    "verified": "desk",
+    "vibecoded_with": "claude-code",
+    "added": "2026-10-30",
+    "checked": "2026-10-30",
+    "release": "v0.15.0 (2026-10-28)",
+    "notes": "ArtCraft. No account, no telemetry badge is the whole pitch versus the original. Desk-graded."
+  }
+]
