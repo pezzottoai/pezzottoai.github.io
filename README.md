@@ -44,6 +44,14 @@ in the nav remembers the choice. `?lang=it` or `?lang=nap` picks one directly. O
    original is closed source.
 3. Open a pull request. A human checks the clone actually runs, then grades it.
 
+## Logo
+
+`assets/` holds the logo: `mark.svg` (the square "p." tile, also the favicon and the launcher
+icon), `wordmark.svg`, `logo.svg` (mark + wordmark) and `-dark` variants for dark backgrounds,
+plus PNG favicons and the social card. Glyphs are outlined from Archivo Black (SIL Open Font
+License) so the files need no web font; `assets/src/make_logo.py` regenerates them
+(`pip install fonttools`, download the font from the google/fonts repository).
+
 ## License
 
 Site and code: [MIT](LICENSE). Catalog data (`catalog/clones.json`): CC0.
