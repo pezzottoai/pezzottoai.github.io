@@ -128,6 +128,10 @@
   .def b { font-weight: 600; }
   .def i { color: var(--ink-2); }
 
+  .cta { margin: 22px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; font-family: var(--mono); font-size: 14px; }
+  .cta .btn { display: inline-block; background: var(--tarp); color: var(--paper); text-decoration: none; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 13px; padding: 12px 18px; border: 2px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+  .cta .btn:hover { background: var(--stamp); color: var(--paper); }
+  .cta .more { color: var(--ink-2); }
   .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 28px; }
   .pillar { border: 2px solid var(--rule); padding: 22px; background: var(--paper-2); position: relative; scroll-margin-top: 24px; }
   .pillar .num { position: absolute; top: -14px; left: 16px; background: var(--tarp); color: #fff; font-family: var(--mono); font-weight: 600; font-size: 12px; letter-spacing: .12em; padding: 3px 9px; }
@@ -194,16 +198,17 @@
   <p class="kicker" data-i18n="kicker">Open-source knock-offs, honestly labelled</p>
   <h1 class="logo"><img class="mark" src="assets/mark.svg" alt="" width="512" height="512">pezzotto<span class="dot">.</span>ai</h1>
   <p class="tagline" data-i18n="tagline">A street stall of vibecoded clones of closed-source apps — and the workshop that makes them.</p>
+  <p class="cta"><a class="btn" href="https://github.com/pezzottoai/launcher/releases/latest" data-i18n="cta.download">Download the launcher</a> <a class="more" href="#launcher" data-i18n="cta.more">what it is ↓</a></p>
   <span class="stamp" aria-hidden="true">100% pezzotto</span>
 </header>
 
 <nav class="toc" aria-label="Sections">
   <a href="#what" data-i18n="nav.what">What is a pezzotto</a>
   <a href="#how" data-i18n="nav.how">Three pieces</a>
+  <a href="#launcher" data-i18n="nav.launcher">The launcher</a>
   <a href="#catalog" data-i18n="nav.catalog">The stall</a>
   <a href="#grade" data-i18n="nav.grade">The grade</a>
   <a href="#submit" data-i18n="nav.submit">Add a clone</a>
-  <a href="#launcher" data-i18n="nav.launcher">The launcher</a>
   <a href="https://github.com/pezzottoai">GitHub</a>
   <span class="lang" role="group" aria-label="Language"><button type="button" data-lang="en" lang="en">EN</button><button type="button" data-lang="it" lang="it">IT</button><button type="button" data-lang="nap" lang="nap">NAP</button></span>
 </nav>
@@ -224,8 +229,18 @@
 <section id="how">
   <h2><small data-i18n="how.small">Structure</small><span data-i18n="how.h2">Three pieces of the same stall</span></h2>
   <div class="pillars">
-    <article class="pillar">
+    <article class="pillar" id="launcher">
       <span class="num">01</span>
+      <h3>'O guaglione <em data-i18n="p3.em">the launcher</em></h3>
+      <p data-i18n="p3.p">The <b>pezzotto.ai launcher</b> hands you the goods: a small cross-platform installer and launcher for open-source apps, including the knock-offs on this blanket. Browse by topic, install with one click, launch, remove. Rust and egui, no account, works offline once the catalog is cached.</p>
+      <ul>
+        <li data-i18n="p3.li1"><a href="https://github.com/pezzottoai/launcher/releases/latest">Download</a> for Linux, Windows and macOS (<a href="https://github.com/pezzottoai/launcher/releases/tag/nightly">nightly</a> builds too)</li>
+        <li data-i18n="p3.li2">Installs via Flatpak, winget, Homebrew or the project's own releases</li>
+        <li data-i18n="p3.li3">Source: <a href="https://github.com/pezzottoai/launcher">pezzottoai/launcher</a>, MIT. App manifests live in a secondary repo, <a href="https://github.com/pezzottoai/launcher-catalog">launcher-catalog</a>.</li>
+      </ul>
+    </article>
+    <article class="pillar">
+      <span class="num">02</span>
       <h3>'O bancariello <em data-i18n="p1.em">the catalog</em></h3>
       <p data-i18n="p1.p">A curated index of vibecoded clones of closed-source apps. Each entry names the original, links the clone, records license, stack and feature coverage, tracks whether it is still maintained, and gives it a <a href="#grade">pezzotto grade</a>.</p>
       <ul>
@@ -235,7 +250,7 @@
       </ul>
     </article>
     <article class="pillar">
-      <span class="num">02</span>
+      <span class="num">03</span>
       <h3>'A fraveca <em data-i18n="p2.em">the harness</em></h3>
       <p data-i18n="p2.p">A harness that drives a coding agent from a closed-source target to a working clone. It writes the spec from public behaviour, builds, grades the result against the spec, and produces the catalog entry as a by-product.</p>
       <ul>
@@ -243,16 +258,6 @@
         <li data-i18n="p2.li2"><code>build</code> — drive the agent, one feature at a time</li>
         <li data-i18n="p2.li3"><code>grade</code> — score coverage and fidelity</li>
         <li data-i18n="p2.li4"><code>stall</code> — emit the catalog entry</li>
-      </ul>
-    </article>
-    <article class="pillar" id="launcher">
-      <span class="num">03</span>
-      <h3>'O guaglione <em data-i18n="p3.em">the launcher</em></h3>
-      <p data-i18n="p3.p">The <b>pezzotto.ai launcher</b> hands you the goods: a small cross-platform installer and launcher for open-source apps, including the knock-offs on this blanket. Browse by topic, install with one click, launch, remove. Rust and egui, no account, works offline once the catalog is cached.</p>
-      <ul>
-        <li data-i18n="p3.li1"><a href="https://github.com/pezzottoai/launcher/releases/latest">Download</a> for Linux, Windows and macOS (<a href="https://github.com/pezzottoai/launcher/releases/tag/nightly">nightly</a> builds too)</li>
-        <li data-i18n="p3.li2">Installs via Flatpak, winget, Homebrew or the project's own releases</li>
-        <li data-i18n="p3.li3">Source: <a href="https://github.com/pezzottoai/launcher">pezzottoai/launcher</a>, MIT. App manifests live in a secondary repo, <a href="https://github.com/pezzottoai/launcher-catalog">launcher-catalog</a>.</li>
       </ul>
     </article>
   </div>
@@ -341,6 +346,7 @@
       'kicker': 'Tarocchi open source, etichettati onestamente',
       'tagline': 'Una bancarella di cloni vibecodati di app a codice chiuso — e l\'officina che li produce.',
       'nav.what': 'Cos\'è un pezzotto', 'nav.how': 'Tre pezzi', 'nav.catalog': 'La bancarella', 'nav.grade': 'Il voto', 'nav.submit': 'Aggiungi un clone', 'nav.launcher': 'Il launcher',
+      'cta.download': 'Scarica il launcher', 'cta.more': 'che cos\'è ↓',
       'what.small': 'Glossario', 'what.h2': 'Cos\'è un pezzotto?',
       'what.def': '<b>pezzotto</b> <i>/pe\'tsɔt.to/ — sostantivo, napoletano.</i><br>1. Un falso. Il CD taroccato sul lenzuolo davanti alla stazione, la borsa con una lettera in più nel logo.<br>2. Una toppa; qualcosa messo insieme a pezzi che più o meno funziona.<br>3. <i>(qui)</i> Una ricostruzione open source, vibecodata, di un\'app a codice chiuso.<br><i>Vedi anche:</i> <b>\'o bancariello</b>, la bancarella; <b>\'a fraveca</b>, il cantiere (come in <i>pare \'a fraveca \'e San Pietro</i>, il lavoro che non finisce mai); <b>\'o guaglione</b>, il garzone che ti passa la merce.',
       'what.lede': 'Ogni app a codice chiuso di successo ha ormai una dozzina di cloni costruiti in un pomeriggio con un agente di programmazione. Quasi tutti abbandonati. Alcuni eccellenti. Nessuno etichettato.',
@@ -386,8 +392,9 @@
     nap: {
       'kicker': 'Pezzotti open source, cu \'a targhetta onesta',
       'tagline': 'Nu bancariello \'e cloni vibecodati \'e app a còdece chiuso — e \'a fraveca ca \'e fa.',
-      'nav.what': 'Che d\'è nu pezzotto', 'nav.how': 'Tre piezze', 'nav.catalog': '\'O bancariello', 'nav.grade': '\'A pagella', 'nav.submit': 'Puorta nu clone', 'nav.launcher': '\'O guaglione',
-      'what.small': 'Glossario', 'what.h2': 'Che d\'è nu pezzotto?',
+      'nav.what': 'Che rè nu pezzotto', 'nav.how': 'Tre piezze', 'nav.catalog': '\'O bancariello', 'nav.grade': '\'A pagella', 'nav.submit': 'Puorta nu clone', 'nav.launcher': '\'O guaglione',
+      'cta.download': 'Scarica \'o launcher', 'cta.more': 'che rè ↓',
+      'what.small': 'Glossario', 'what.h2': 'Che rè nu pezzotto?',
       'what.def': '<b>pezzotto</b> <i>/pe\'tsɔt.to/ — nomme, napulitano.</i><br>1. Na cosa fàuza. \'O CD pezzotto ncopp\' \'o lenzulo annanz\' \'a stazione, \'a borza cu na lettera \'e cchiù dint\' \'o logo.<br>2. Na pezza; na cosa cusuta a piezze ca cchiù o meno fatica.<br>3. <i>(ccà)</i> Na ricostruzione open source, vibecodata, \'e n\'app a còdece chiuso.<br><i>Vide pure:</i> <b>\'o bancariello</b>, \'a bancarella; <b>\'a fraveca</b>, \'o cantiere (comme a <i>pare \'a fraveca \'e San Pietro</i>, \'a fatica ca nun fernesce maje); <b>\'o guaglione</b>, chillo ca te passa \'a rrobba.',
       'what.lede': 'Ogne app a còdece chiuso ca tira tene mo na decina \'e cloni fatte dint\'a nu doppopranzo cu n\'agente ca scrive còdece. Quase tutte abbandunate. Quaccuna è na meraviglia. Nisciuna tene \'a targhetta.',
       'what.p': 'pezzotto.ai \'a pazziella se \'a piglia overo. Mettimmo \'e pezzotti ncopp\' \'o bancariello, le dammo nu vuto pe quanto so\' credibbele, dicimmo quale stanno ancora vive e pubblecammo \'a fraveca cu \'a quale facimmo \'e nuoste — a \'o sole, cu \'o nomme \'e l\'origginale scritto ncopp\' \'o cartiello d\' \'o prezzo.',
